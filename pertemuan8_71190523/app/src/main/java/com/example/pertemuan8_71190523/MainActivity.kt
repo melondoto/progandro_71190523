@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         //Pager
         val viewPager = findViewById<ViewPager2>(R.id.pager)
-        val listFragment: ArrayList<Fragment> = arrayListOf(FirstFragment(), SecondFragment())
+        val listFragment: ArrayList<Fragment> = arrayListOf(FirstFragment(), SecondFragment(), ThirdFragment())
         val pagerAdapter = PagerAdapter(this, listFragment)
         viewPager.adapter = pagerAdapter
     }
@@ -43,9 +43,24 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.page1 -> Toast.makeText(this,"Halaman 1", Toast.LENGTH_SHORT).show()
-            R.id.page2 -> startActivity(Intent(this, SecondActivity::class.java))
-            R.id.page3 -> startActivity(Intent(this, ThirdActivity::class.java))
+//            R.id.page1 -> Toast.makeText(this,"Halaman 1", Toast.LENGTH_SHORT).show()
+//            R.id.page2 -> startActivity(Intent(this, SecondActivity::class.java))
+//            R.id.page3 -> startActivity(Intent(this, ThirdActivity::class.java))
+            R.id.page1 -> {
+                val viewPager = findViewById<ViewPager2>(R.id.pager)
+                viewPager.setCurrentItem(0)
+                true
+            }
+            R.id.page2 -> {
+                val viewPager = findViewById<ViewPager2>(R.id.pager)
+                viewPager.setCurrentItem(1)
+                true
+            }
+            R.id.page3 -> {
+                val viewPager = findViewById<ViewPager2>(R.id.pager)
+                viewPager.setCurrentItem(2)
+                true
+            }
         }
         return super.onOptionsItemSelected(item)
     }
