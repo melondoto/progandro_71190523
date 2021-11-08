@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Latihan 9</string>
+    <string-array name="list_bahasa">
+        <item>Indonesia</item>
+        <item>Jerman</item>
+        <item>Jepang</item>
+        <item>Inggris</item>
+        <item>Korea</item>
+    </string-array>
+</resources>
