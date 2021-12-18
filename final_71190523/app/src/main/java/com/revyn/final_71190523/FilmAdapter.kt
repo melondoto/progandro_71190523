@@ -20,18 +20,15 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmAdapter.FilmHolder {
-        TODO("Not yet implemented")
         val fh = LayoutInflater.from(parent.context).inflate(R.layout.item_film, parent, false)
         return FilmHolder(fh)
     }
 
     override fun onBindViewHolder(holder: FilmAdapter.FilmHolder, position: Int) {
-        TODO("Not yet implemented")
         holder.bind(listFilm[position])
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
         return listFilm.size
     }
 }
