@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "666236796413",
+    "project_id": "final-71190523",
+    "storage_bucket": "final-71190523.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:666236796413:android:0bb38452f2381971cd6d94",
+        "android_client_info": {
+          "package_name": "com.revyn.final_71190523"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "666236796413-g0n2pnss123bi30hr3q9diiirotjae2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGY-G9if-E1vI3EIBlViNaiZFCLu04GME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "666236796413-g0n2pnss123bi30hr3q9diiirotjae2k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
