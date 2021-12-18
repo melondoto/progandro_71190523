@@ -20,4 +20,10 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, Login::class.java)
         startActivity(intent)
     }
+
+    fun btnInsert(view: android.view.View) {
+        auth = FirebaseAuth.getInstance()
+        val intent = Intent(this, InsertData::class.java)
+        startActivity(intent)
+    }
 }

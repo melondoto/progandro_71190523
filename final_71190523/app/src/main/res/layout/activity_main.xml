@@ -6,16 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        android:onClick="btnlogout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/txtUser"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="32sp"
+            android:text="Selamat Datang, " />
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnlogout"
+            android:text="Logout" />
+
+        <Button
+            android:id="@+id/btnInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnInsert"
+            android:text="Tambah Film" />
+
+        <EditText
+            android:id="@+id/edtSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="15"
+            android:inputType="textPersonName"
+            android:text="Cari berdasarkan nama film"
+            tools:layout_editor_absoluteX="32dp"
+            tools:layout_editor_absoluteY="44dp" />
+
+        <Button
+            android:id="@+id/btnCari"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Cari" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcyFilm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.045" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

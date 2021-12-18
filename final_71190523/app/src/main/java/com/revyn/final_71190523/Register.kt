@@ -7,17 +7,19 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 
 class Register : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
+    var firestore: FirebaseFirestore? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         auth = FirebaseAuth.getInstance()
+        firestore = FirebaseFirestore.getInstance()
 
         val fullname = findViewById<EditText>(R.id.fullname)
         val email = findViewById<EditText>(R.id.email)
@@ -77,6 +79,8 @@ class Register : AppCompatActivity() {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         val intent = Intent(this, Login::class.java)
+                        val user = User(fullname.text.toString(), email.text.toString(), phone.text.toString())
+                        firestore?.collection("user")?.add(user)
                         startActivity(intent)
                         finish()
                     } else {
