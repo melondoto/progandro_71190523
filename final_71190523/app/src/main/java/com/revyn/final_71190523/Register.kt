@@ -80,7 +80,12 @@ class Register : AppCompatActivity() {
                         // Sign in success, update UI with the signed-in user's information
                         val intent = Intent(this, Login::class.java)
                         val user = User(fullname.text.toString(), email.text.toString(), phone.text.toString())
-                        firestore?.collection("user")?.add(user)
+                        val uid = auth.currentUser?.uid
+                        if (uid != null) {
+                            firestore?.collection("user")?.document(uid)?.set(user)
+                        }else{
+                            firestore?.collection("user")?.add(user)
+                        }
                         startActivity(intent)
                         finish()
                     } else {

@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
 
         firestore!!.collection("film").get()
             .addOnSuccessListener {
-                val listFilm = ArrayList<Film>()
+                var listFilm = ArrayList<Film>()
+                listFilm.clear()
 
                 for(doc in it){
                     listFilm.add(Film("${doc.data["film"]}", "${doc.data["durasi"]}", "${doc.data["genre"]}", "${doc.data["rating"]}".toInt()))

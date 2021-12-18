@@ -45,7 +45,7 @@
             android:layout_height="wrap_content"
             android:ems="15"
             android:inputType="textPersonName"
-            android:text="Cari berdasarkan nama film"
+            android:hint="Cari berdasarkan nama film"
             tools:layout_editor_absoluteX="32dp"
             tools:layout_editor_absoluteY="44dp" />
 
