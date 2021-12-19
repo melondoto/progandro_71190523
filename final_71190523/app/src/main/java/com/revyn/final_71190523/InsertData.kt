@@ -62,4 +62,10 @@ class InsertData : AppCompatActivity() {
                 }
         }
     }
+
+    fun btnBatal(view: android.view.View) {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
 }

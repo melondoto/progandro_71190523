@@ -51,7 +51,7 @@
                 android:layout_marginTop="16dp"
                 android:drawableLeft="@drawable/password"
                 android:hint="Password"
-                android:inputType="numberPassword" />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/phone"

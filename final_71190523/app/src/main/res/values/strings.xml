@@ -12,4 +12,5 @@
     <string name="cari_berdasarkan_nama_film">Cari berdasarkan nama film</string>
     <string name="cari">Cari</string>
     <string name="selamat_datang">Selamat datang,</string>
+    <string name="data_film">Data Film:</string>
 </resources>
