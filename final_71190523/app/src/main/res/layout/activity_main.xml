@@ -7,10 +7,10 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,38 +22,40 @@
             android:id="@+id/txtUser"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:textSize="32sp"
-            android:text="Selamat Datang, " />
+            android:text="@string/selamat_datang"
+            android:textSize="32sp" />
 
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="btnlogout"
-            android:text="Logout" />
+            android:text="@string/logout" />
 
         <Button
             android:id="@+id/btnInsert"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="btnInsert"
-            android:text="Tambah Film" />
+            android:text="@string/tambah_film" />
 
-        <EditText
-            android:id="@+id/edtSearch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="15"
-            android:inputType="textPersonName"
-            android:hint="Cari berdasarkan nama film"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="44dp" />
+            <EditText
+                android:id="@+id/edtSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="15"
+                android:hint="@string/cari_berdasarkan_nama_film"
+                android:inputType="textPersonName"
+                tools:ignore="TouchTargetSizeCheck"
+                tools:layout_editor_absoluteX="32dp"
+                tools:layout_editor_absoluteY="44dp" />
 
-        <Button
-            android:id="@+id/btnCari"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Cari" />
+            <Button
+                android:id="@+id/btnCari"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:onClick="btnCari"
+                android:text="@string/cari" />
 
     </LinearLayout>
 
@@ -65,7 +67,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
         app:layout_constraintVertical_bias="0.045" />
 
 

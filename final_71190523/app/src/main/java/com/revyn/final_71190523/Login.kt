@@ -31,6 +31,12 @@ class Login : AppCompatActivity() {
             finish()
         }
 
+        if(auth.currentUser != null){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
         btnLogin.setOnClickListener {
             if(email.text.toString().isEmpty()){
                 email.error = "Email harus diisi!"

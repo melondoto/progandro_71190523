@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -13,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     var firestore: FirebaseFirestore? = null
+    val cari: EditText? by lazy { findViewById(R.id.edtSearch) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,6 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
+
+        val txtUser = findViewById<TextView>(R.id.txtUser)
+        val uid = auth.currentUser?.uid
+
+        if (uid != null) {
+            firestore!!.collection("user").document(uid).get()
+                .addOnSuccessListener {
+                    txtUser.setText("Selamat datang, ${it.data?.get("fullname")}")
+                }
+        }
 
         firestore!!.collection("film").get()
             .addOnSuccessListener {
@@ -52,5 +65,14 @@ class MainActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val intent = Intent(this, InsertData::class.java)
         startActivity(intent)
+        finish()
+    }
+
+    fun btnCari(view: android.view.View) {
+        auth = FirebaseAuth.getInstance()
+        val intent = Intent(this, SearchData::class.java)
+        intent.putExtra("cari", cari?.text.toString())
+        startActivity(intent)
+        finish()
     }
 }

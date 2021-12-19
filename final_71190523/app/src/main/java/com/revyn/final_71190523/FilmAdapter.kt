@@ -1,7 +1,6 @@
 package com.revyn.final_71190523
 
 import android.app.AlertDialog
-import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,14 +9,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.recreate
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import android.app.Activity
-
-
-
+import android.content.Intent
 
 
 class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdapter.FilmHolder>(){
@@ -35,12 +30,6 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
             view.findViewById<TextView>(R.id.tvRating).text = film.rating.toString()
 
             view.findViewById<Button>(R.id.btnEdit).setOnClickListener {
-//                val intent = Intent(view.context, EditData::class.java)
-//                intent.putExtra("film", film.film)
-//                intent.putExtra("durasi", film.durasi)
-//                intent.putExtra("genre", film.genre)
-//                intent.putExtra("rating", film.rating.toString())
-//                view.context.startActivity(intent)
                 showUpdateDialog(film)
             }
         }
@@ -101,7 +90,9 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
                                 .update("film", etFilm.text.toString(), "durasi", etDurasi.text.toString(), "genre", etGenre.text.toString(), "rating", etRating.text.toString().toInt())
                                 .addOnSuccessListener {
                                     Toast.makeText(view.context, "Film updated!", Toast.LENGTH_SHORT).show()
-                                    (view.context as Activity).recreate()
+//                                    (view.context as Activity).recreate()
+                                    view.context.startActivity(Intent(view.context, MainActivity::class.java))
+                                    (view.context as Activity).finish()
                                 }
                         }
                     }
@@ -123,7 +114,8 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
                                 .delete()
                                 .addOnSuccessListener {
                                     Toast.makeText(view.context, "Film deleted!", Toast.LENGTH_SHORT).show()
-                                    (view.context as Activity).recreate()
+//                                    (view.context as Activity).recreate()
+                                    view.context.startActivity(Intent(view.context, MainActivity::class.java))
                                 }
                         }
                     }
@@ -139,8 +131,6 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
             alert.show()
         }
     }
-
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FilmAdapter.FilmHolder {
         val fh = LayoutInflater.from(parent.context).inflate(R.layout.item_film, parent, false)
