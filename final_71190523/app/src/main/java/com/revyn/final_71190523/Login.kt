@@ -85,14 +85,4 @@ class Login : AppCompatActivity() {
                 }
         }
     }
-
-    public override fun onStart() {
-        super.onStart()
-        val currentUser : FirebaseUser? = auth.currentUser
-        updateUI(currentUser)
-    }
-
-    fun updateUI(currentUser: FirebaseUser?){
-
-    }
 }

@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
 import android.app.Activity
-import android.content.Intent
 
 
 class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdapter.FilmHolder>(){
@@ -90,9 +89,7 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
                                 .update("film", etFilm.text.toString(), "durasi", etDurasi.text.toString(), "genre", etGenre.text.toString(), "rating", etRating.text.toString().toDouble())
                                 .addOnSuccessListener {
                                     Toast.makeText(view.context, "Film updated!", Toast.LENGTH_SHORT).show()
-//                                    (view.context as Activity).recreate()
-                                    view.context.startActivity(Intent(view.context, MainActivity::class.java))
-                                    (view.context as Activity).finish()
+                                    (view.context as Activity).recreate()
                                 }
                         }
                     }
@@ -114,8 +111,7 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
                                 .delete()
                                 .addOnSuccessListener {
                                     Toast.makeText(view.context, "Film deleted!", Toast.LENGTH_SHORT).show()
-//                                    (view.context as Activity).recreate()
-                                    view.context.startActivity(Intent(view.context, MainActivity::class.java))
+                                    (view.context as Activity).recreate()
                                 }
                         }
                     }
