@@ -1,10 +1,9 @@
 <resources>
-    <string name="app_name">final_71190523</string>
+    <string name="app_name">Film Dashboard</string>
     <string name="judul_film">Judul Film</string>
     <string name="durasi">Durasi</string>
     <string name="genre">Genre</string>
     <string name="rating">Rating</string>
-    <string name="petikDua">" : "</string>
     <string name="petikdua">:</string>
     <string name="edit">Edit</string>
     <string name="logout">Logout</string>
