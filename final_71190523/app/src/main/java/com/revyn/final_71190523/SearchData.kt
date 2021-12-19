@@ -35,7 +35,7 @@ class SearchData : AppCompatActivity() {
                 listFilmSearch.clear()
 
                 for(doc in it){
-                    listFilmSearch.add(Film("${doc.data["film"]}", "${doc.data["durasi"]}", "${doc.data["genre"]}", "${doc.data["rating"]}".toInt()))
+                    listFilmSearch.add(Film("${doc.data["film"]}", "${doc.data["durasi"]}", "${doc.data["genre"]}", "${doc.data["rating"]}".toDouble()))
                 }
 
                 val rcySearch = findViewById<RecyclerView>(R.id.rcySearch)

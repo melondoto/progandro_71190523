@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 listFilm.clear()
 
                 for(doc in it){
-                    listFilm.add(Film("${doc.data["film"]}", "${doc.data["durasi"]}", "${doc.data["genre"]}", "${doc.data["rating"]}".toInt()))
+                    listFilm.add(Film("${doc.data["film"]}", "${doc.data["durasi"]}", "${doc.data["genre"]}", "${doc.data["rating"]}".toDouble()))
                 }
 
                 val rcyFilm = findViewById<RecyclerView>(R.id.rcyFilm)

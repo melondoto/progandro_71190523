@@ -25,9 +25,9 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
             firestore = FirebaseFirestore.getInstance()
             this.film = film
             view.findViewById<TextView>(R.id.tvFilm).text = film.film
-            view.findViewById<TextView>(R.id.tvDurasi).text = film.durasi
+            view.findViewById<TextView>(R.id.tvDurasi).text = "${film.durasi} menit"
             view.findViewById<TextView>(R.id.tvGenre).text = film.genre
-            view.findViewById<TextView>(R.id.tvRating).text = film.rating.toString()
+            view.findViewById<TextView>(R.id.tvRating).text = "${film.rating.toString()} star"
 
             view.findViewById<Button>(R.id.btnEdit).setOnClickListener {
                 showUpdateDialog(film)
@@ -87,7 +87,7 @@ class FilmAdapter (var listFilm: ArrayList<Film>): RecyclerView.Adapter<FilmAdap
                     .addOnSuccessListener {
                         for (doc in it){
                             firestore!!.collection("film").document(doc.id)
-                                .update("film", etFilm.text.toString(), "durasi", etDurasi.text.toString(), "genre", etGenre.text.toString(), "rating", etRating.text.toString().toInt())
+                                .update("film", etFilm.text.toString(), "durasi", etDurasi.text.toString(), "genre", etGenre.text.toString(), "rating", etRating.text.toString().toDouble())
                                 .addOnSuccessListener {
                                     Toast.makeText(view.context, "Film updated!", Toast.LENGTH_SHORT).show()
 //                                    (view.context as Activity).recreate()

@@ -34,23 +34,50 @@ class InsertData : AppCompatActivity() {
                 namaFilm.requestFocus()
                 return@setOnClickListener
             }
+
             if(durasiFilm.text.toString().isEmpty()){
                 durasiFilm.error = "Durasi tidak boleh kosong!"
                 durasiFilm.requestFocus()
                 return@setOnClickListener
             }
+
+            if(durasiFilm.text.toString().toInt() < 0){
+                durasiFilm.error = "Durasi tidak valid! Harus >= 0"
+                durasiFilm.requestFocus()
+                return@setOnClickListener
+            }
+
+            if(durasiFilm.text.toString().toInt() > 3000){
+                durasiFilm.error = "Durasi tidak valid! Harus <= 3000 menit"
+                durasiFilm.requestFocus()
+                return@setOnClickListener
+            }
+
             if(genreFilm.text.toString().isEmpty()){
                 genreFilm.error = "Genre tidak boleh kosong!"
                 genreFilm.requestFocus()
                 return@setOnClickListener
             }
+
             if(ratingFilm.text.toString().isEmpty()){
                 ratingFilm.error = "Rating tidak boleh kosong!"
                 ratingFilm.requestFocus()
                 return@setOnClickListener
             }
 
-            val film = Film(namaFilm.text.toString(), durasiFilm.text.toString(), genreFilm.text.toString(), ratingFilm.text.toString().toInt())
+            if(ratingFilm.text.toString().toDouble() < 0){
+                ratingFilm.error = "Rating tidak valid! Harus >= 0"
+                ratingFilm.requestFocus()
+                return@setOnClickListener
+            }
+
+            if(ratingFilm.text.toString().toDouble() > 5){
+                ratingFilm.error = "Nilai rating tidak valid! Harus <= 5"
+                ratingFilm.requestFocus()
+                return@setOnClickListener
+            }
+
+            val film = Film(namaFilm.text.toString(), durasiFilm.text.toString(), genreFilm.text.toString(), ratingFilm.text.toString().toDouble())
             firestore?.collection("film")?.add(film)
                 ?.addOnSuccessListener {
                     Toast.makeText(this, "Film inserted!", Toast.LENGTH_SHORT).show()

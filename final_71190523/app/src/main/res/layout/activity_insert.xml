@@ -90,7 +90,7 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:hint="Rating Film"
-                android:inputType="number" />
+                android:inputType="numberDecimal" />
 
         </LinearLayout>
 
