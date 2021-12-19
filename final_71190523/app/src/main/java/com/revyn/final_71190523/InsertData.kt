@@ -56,6 +56,7 @@ class InsertData : AppCompatActivity() {
                     Toast.makeText(this, "Film inserted!", Toast.LENGTH_SHORT).show()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
+                    finish()
                 }?.addOnFailureListener{
                     Toast.makeText(this, "Film gagal ditambahkan!", Toast.LENGTH_SHORT).show()
                 }

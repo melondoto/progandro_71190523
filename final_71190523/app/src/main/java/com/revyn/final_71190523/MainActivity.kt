@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         auth.signOut()
         val intent = Intent(this, Login::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun btnInsert(view: android.view.View) {
